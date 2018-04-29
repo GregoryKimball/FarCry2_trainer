@@ -18,4 +18,5 @@ By default the trainer uses "~/FarCry2_trainer" as a working directory to store 
 Please make sure to begin with unmodded patch.dat and patch.fat files so that the trainer will be able to revert to an unmodded game if desired.
 
 Changelog:
-2918-04-28: v1.0.0 released with initial mod set
+
+2018-04-28: v1.0.0 released with initial mod set
