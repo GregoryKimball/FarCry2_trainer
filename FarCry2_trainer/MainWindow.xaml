@@ -1,0 +1,73 @@
+﻿<Window x:Class="FarCry2_trainer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FarCry2_trainer"
+        mc:Ignorable="d"
+        Title="FarCry2_trainer" Height="852.5" Width="1084.5" Icon="pack://siteoforigin:,,,/Resources/fc2_trainer.ico">
+    <Grid Margin="0,12,2,-4">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <TabControl x:Name="tabControl" HorizontalAlignment="Left" Height="561" Margin="4,-8,0,0" VerticalAlignment="Top" Width="1066" >
+            <TabItem Header="Maps">
+                <Grid Background="#FFE5E5E5">
+                    <Image x:Name="image" HorizontalAlignment="Left" Height="430" VerticalAlignment="Top" Width="445" Margin="25,58,0,0" Source="pack://siteoforigin:,,,/Resources/NORTH_leboa_sako.png" MouseDown="mapNorth_Click"/>
+                    <Image x:Name="image_Copy" HorizontalAlignment="Left" Height="430" VerticalAlignment="Top" Width="432" Margin="554,58,0,0" Source="pack://siteoforigin:,,,/Resources/SOUTH_bowa_seko.png" MouseDown="mapSouth_Click"/>
+                    <Label x:Name="label1" Content="Leboa Sako" HorizontalAlignment="Left" Margin="210,19,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
+                    <Label x:Name="label1_Copy" Content="Bowa Seko" HorizontalAlignment="Left" Margin="753,19,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
+                    <Label x:Name="label2" HorizontalAlignment="Left" Height="31" Margin="250,497,0,0" VerticalAlignment="Top" Width="617" Foreground="#FF0017FF">map credit:</Label>
+
+                    <Label Margin="316,497,338,10">
+                        <Hyperlink NavigateUri="http://www.openworldgames.org/owg/forums/index.php?board=169.0" Click="owg_Click">http://www.openworldgames.org/owg/forums/index.php?board=169.0</Hyperlink>
+                    </Label>
+
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="Setup Files">
+                <Grid Background="#FFE5E5E5">
+                    <Label x:Name="label" Content="Far Cry 2 " HorizontalAlignment="Left" Margin="67,92,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="gameLocation" HorizontalAlignment="Left" Height="23" Margin="159,95,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="398"/>
+                    <Label x:Name="label_Copy" Content="working dir" HorizontalAlignment="Left" Margin="68,264,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="patchLocation" HorizontalAlignment="Left" Height="23" Margin="160,267,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="398"/>
+                    <Label x:Name="label_Copy1" Content="binaries dir" HorizontalAlignment="Left" Margin="67,183,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="binLocation" HorizontalAlignment="Left" Height="23" Margin="160,186,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="398"/>
+                    <Button x:Name="extractButton" Content="Extract!" HorizontalAlignment="Left" Margin="388,364,0,0" VerticalAlignment="Top" Width="141" Height="61" Click="extractButton_Click"/>
+                    <TextBox x:Name="gameStatus" HorizontalAlignment="Left" Height="23" Margin="626,95,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextAlignment="Center"/>
+                    <TextBox x:Name="patchStatus" HorizontalAlignment="Left" Height="23" Margin="626,186,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextAlignment="Center"/>
+                    <TextBox x:Name="binStatus" HorizontalAlignment="Left" Height="23" Margin="626,267,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextAlignment="Center"/>
+                    <Button x:Name="checkStatusButton" Content="Check Status" HorizontalAlignment="Left" Height="27" Margin="626,40,0,0" VerticalAlignment="Top" Width="120" Click="checkStatusButton_Click"/>
+                    <Button x:Name="setupBinButton" Content="Setup Gibbed Binaries" HorizontalAlignment="Left" Height="61" Margin="214,364,0,0" VerticalAlignment="Top" Width="132" Click="setupBinButton_Click"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Edit files">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="saveButton" Content="Save" HorizontalAlignment="Left" Height="48" Margin="37,30,0,0" VerticalAlignment="Top" Width="82" Click="saveButton_Click"/>
+                    <Button x:Name="resetButton" Content="Revert" HorizontalAlignment="Left" Margin="153,30,0,0" VerticalAlignment="Top" Width="90" Height="48" Click="resetButton_Click"/>
+                    <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="350" Margin="10,177,0,0" VerticalAlignment="Top" Width="320" SelectionChanged="listBox_SelectionChanged"/>
+                    <ComboBox x:Name="xmlFileComboBox" HorizontalAlignment="Left" Margin="24,135,0,0" VerticalAlignment="Top" Width="306" SelectionChanged="xmlFileComboBox_SelectionChanged" Height="22"/>
+                    <TextBox x:Name="folderTextBox" HorizontalAlignment="Left" Height="23" Margin="153,96,0,0" TextWrapping="Wrap" Text="mymod\patch" VerticalAlignment="Top" Width="120" TextChanged="folderTextBox_TextChanged"/>
+                    <ComboBox x:Name="operationComboBox" HorizontalAlignment="Left" Margin="472,35,0,0" VerticalAlignment="Top" Width="165" Height="20"/>
+                    <Button x:Name="button2" Content="edit" HorizontalAlignment="Left" Margin="666,35,0,0" VerticalAlignment="Top" Width="75" Click="editButton_Click" Height="20"/>
+                    <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="431" Margin="338,96,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="713" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+                    <Button x:Name="shipItButton" Content="SHIP IT" HorizontalAlignment="Left" Margin="891,26,0,0" VerticalAlignment="Top" Width="96" Height="48" Click="shipItButton_Click"/>
+                    <CheckBox x:Name="usePathCheckBox" Content="Browser Mode" HorizontalAlignment="Left" Margin="37,98,0,0" VerticalAlignment="Top" Checked="usePathCheckBox_Checked" IsChecked="False" Height="15" Width="97"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+        <RichTextBox x:Name="logTextBox"  Margin="4,558,4,10" Background="Black" ScrollViewer.VerticalScrollBarVisibility="Auto">
+            <RichTextBox.Resources>
+                <Style TargetType="{x:Type Paragraph}">
+                    <Setter Property="Margin" Value="0"/>
+                </Style>
+            </RichTextBox.Resources>
+        </RichTextBox>
+
+
+    </Grid>
+</Window>
