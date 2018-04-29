@@ -16,3 +16,6 @@ The trainer has been tested with Steam version 1.03 of Far Cry 2, and may not wo
 By default the trainer uses "~/FarCry2_trainer" as a working directory to store game files, mod files, and Gibbed binaries.
 
 Please make sure to begin with unmodded patch.dat and patch.fat files so that the trainer will be able to revert to an unmodded game if desired.
+
+Changelog:
+2918-04-28: v1.0.0 released with initial mod set
