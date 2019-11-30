@@ -195,9 +195,10 @@ namespace FarCry2_trainer
                 string output = proc.StandardOutput.ReadToEnd(); 
                 proc.WaitForExit();
 
-                if (output.Contains("Could not detect Far Cry 2 install directory"))
+                if (output.Contains("failed"))
                 {
                     LogError(output);
+                    LogError("Extraction program could not locate Far Cry 2, please verify registry keys or re-install Far Cry 2.");
                     return;
                 }
 
@@ -233,6 +234,9 @@ namespace FarCry2_trainer
                 source = Path.Combine(working_dir, "libraries", "world1", "41_WeaponProperties.xml");
                 dest = Path.Combine(working_dir, "mymod", "patch", "41_WeaponProperties.xml");
                 File.Copy(source, dest, true);
+
+                if (!Directory.Exists(Path.Combine(working_dir, "Data_Win32")))              
+                    Directory.CreateDirectory(Path.Combine(working_dir, "Data_Win32"));
 
                 source = Path.Combine(game_dir, "Data_Win32", "patch.fat");
                 dest = Path.Combine(working_dir, "_patch.fat");
