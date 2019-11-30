@@ -183,8 +183,25 @@ namespace FarCry2_trainer
                 if (!Directory.Exists(working_dir))
                     Directory.CreateDirectory(working_dir);
 
-                var proc = System.Diagnostics.Process.Start(bootstrap_exe, working_dir);
+
+                Process proc = new Process();
+
+                proc.StartInfo.FileName = bootstrap_exe;
+                proc.StartInfo.Arguments = working_dir;
+                proc.StartInfo.RedirectStandardOutput = true;
+                proc.StartInfo.UseShellExecute = false;
+
+                proc.Start();                
+                string output = proc.StandardOutput.ReadToEnd(); 
                 proc.WaitForExit();
+
+                if (output.Contains("Could not detect Far Cry 2 install directory"))
+                {
+                    LogError(output);
+                    return;
+                }
+
+                LogMessage(output);
                 LogSuccess("complete");
             }
             catch (Exception exp)
