@@ -20,3 +20,23 @@ Please make sure to begin with unmodded patch.dat and patch.fat files so that th
 Changelog:
 
 2018-04-28: v1.0.0 released with initial mod set
+
+
+# Features
+
+gamemodesconfig:
+* unlock all weapons and equipment
+* set cost of manuals to 1
+* remove malaria
+* unlimited sprint
+
+28_pickups:
+* make golden AK-47's respawn
+
+30_player:
+* change max slope climb cap
+
+41_WeaponProperties:
+* set weapon slot
+* make silent
+* remove accuracy spread
